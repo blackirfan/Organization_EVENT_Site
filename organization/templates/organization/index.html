@@ -1,0 +1,87 @@
+{% extends 'organization/base.html' %}
+{% block organizations_active %}active{% endblock %}
+
+{% block body %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+<body>
+
+<h2 class="w3-center">SUST environment is a fuel of every student</h2>
+
+<div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides" src="https://upload.wikimedia.org/wikipedia/en/c/c1/SUST_1_km_entrance_way.jpg" style="width:100%">
+  <img class="mySlides" src="https://lh3.googleusercontent.com/-WOTWakUTGmk/Uq1kzM21nmI/AAAAAAAABII/_7dwtrEvCNw/w800-h800/alpona+sust.jpg" style="width:100%">
+  <img class="mySlides" src="http://i.cdn.turner.com/ireport/sm/prod/2013/03/17/WE00924614/2415744/5779025396281760816401713372737n-2415744_p9.jpg" style="width:100%">
+
+
+<img class="mySlides" src="https://c1.staticflickr.com/2/1450/25027196999_e3338a4dbd_b.jpg" style="width:100%">
+
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 5000); // Change image every 5 seconds
+}
+</script>
+
+
+
+
+
+<!-- <img src="https://upload.wikimedia.org/wikipedia/en/c/c1/SUST_1_km_entrance_way.jpg"> -->
+<p>
+    
+    Shahjalal University of Science and Technology was established in 1986. The campus is located in Kumargaon, approximately six kilometers away from the heart of Sylhet City Centre. The university started its academic programme with three departments: physics, chemistry and economics.
+</p>
+
+
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+
+
+
+<!-- 
+<img src="https://c1.staticflickr.com/8/7584/16986213452_b9c0d5408d_b.jpg" alt="image is not found">
+ -->
+
+
+
+
+<br>
+
+
+
+<button type="button" onclick="myFunction()">MADE BY!</button>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+
+<script>
+function myFunction() {
+    document.getElementById("demo1").innerHTML = "  made by ";
+    document.getElementById("demo2").innerHTML = "Irfan and juboraj";
+}
+</script>
+
+   
+{% endblock %}

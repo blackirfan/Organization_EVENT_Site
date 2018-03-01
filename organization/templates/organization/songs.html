@@ -1,0 +1,66 @@
+{% extends 'organization/base.html' %}
+{% block title %}All special_events{% endblock %}
+{% block special_events_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid special_events-container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" {% if filter_by == 'all' %}class="active"{% endif %}><a href="{% url 'organization:special_events' 'all' %}">View All</a></li>
+                <li role="presentation" {% if filter_by == 'favorites' %}class="active"{% endif %}><a href="{% url 'organization:special_events' 'favorites' %}">Favorites</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>special_event Title</th>
+                                <th>Artist</th>
+                                <th>Audio File</th>
+                                <th>organization</th>
+                                <th>Favorite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for special_event in special_event_list %}
+                                <tr>
+                                    <td>{{ special_event.special_event_title }}</td>
+                                    <td>{{ special_event.organization.artist }}</td>
+                                    <td>
+                                        <a target="_blank" href="{{ special_event.audio_file.url }}">
+                                            <button type="button" class="btn btn-success btn-xs">
+                                                <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                                            </button>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'organization:detail' special_event.organization.id %}">
+                                            <img src="{{ special_event.organization.organization_logo.url }}" class="img-responsive" style="width: 20px; float: left; margin-right: 10px;" />
+                                        </a>
+                                        <a href="{% url 'organization:detail' special_event.organization.id %}">{{ special_event.organization.organization_title }}</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'organization:favorite' special_event.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if special_event.is_favorite %}active{% endif %}"></span></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

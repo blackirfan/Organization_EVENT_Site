@@ -1,0 +1,129 @@
+<!-- this is the header block of about page -->
+
+{% extends 'organization/base.html' %}
+{% block organizations_active %}active{% endblock %}
+
+{% block body %}
+
+
+<h2>WHY ORGANIZATION IS IMPORTANT</h2>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- this is a b;lock which is use for image showing  -->
+<div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides" src="http://mw2.google.com/mw-panoramio/photos/medium/19249714.jpg" style="width:100%">
+  <img class="mySlides" src="http://offroadbangladesh.com/wp-content/uploads/2015/03/SUST_university-square-Rossi1011-626x365.jpg" style="width:100%">
+  <img class="mySlides" src="http://i.cdn.turner.com/ireport/sm/prod/2013/03/17/WE00924614/2415744/5779025396281760816401713372737n-2415744_p9.jpg" style="width:100%">
+
+
+<img class="mySlides" src="https://c1.staticflickr.com/2/1450/25027196999_e3338a4dbd_b.jpg" style="width:100%">
+
+</div>
+
+
+<!-- this is java scripts code for sliding the image automaticly  -->
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 5000); // Change image every 5 seconds
+}
+</script>
+
+
+
+
+
+<p>
+
+The sun is shining on your face. People are bumping your shoulder, and the air is filled with rampant conversations. Everyone seems to know where they’re going, while you’re still looking around, trying to find the right building. It’s the first day of freshman year in college. You’re wondering if this year is going to be great, if you’re going to make new friends, and how much you’ll have to study to pass your classes. With all of that on your plate—in addition to a job, perhaps—joining a student organization is the last thing on your mind.
+
+
+</p>
+
+
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = Date();
+</script>
+
+
+
+
+<!-- <img src="https://d30fl32nd2baj9.cloudfront.net/media/2015/11/27/cse-carival.jpg/ALTERNATES/w640/cse+carival.jpg"> -->
+
+<!-- this css code for visual effect -->
+
+<style>
+
+
+
+p {
+    text-indent: 50px;
+    text-align: justify;
+    letter-spacing: 3px;
+}
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+p.italic {
+    font-style: italic;
+}
+
+p {
+    font-size: 1.25em; /* 14px/16=0.875em */
+}
+</style>
+
+
+<br>
+
+
+
+<button type="button" onclick="myFunction()">MADE BY!</button>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<!-- This is use for a block for represent the javascripts code for click and show which people made thisweb project -->
+<script>
+function myFunction() {
+    document.getElementById("demo1").innerHTML = "  made by ";
+    document.getElementById("demo2").innerHTML = "Irfan and juboraj";
+}
+</script>
+
+   
+{% endblock %}
+
+<!-- this is end mark of this base.html code it insert the another html page on this content -->

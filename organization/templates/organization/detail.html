@@ -1,0 +1,98 @@
+{% extends 'organization/base.html' %}
+{% block title %}{{ organization }}{% endblock %}
+{% block organizations_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid special_events-container">
+
+    <div class="row">
+
+        <!-- Left organization Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'organization:detail' organization.id %}">
+                        {% if organization.organization_logo %}
+                            <img src="{{ organization.organization_logo.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ organization.organization_name }} <small> 
+
+                    </br>Type: {{ organization.organization_type }}</small></h1>
+                    <h2>from in: {{ organization.established }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right special_event Info -->
+        <div class="col-sm-8 col-md-9">
+
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="{% url 'organization:detail' organization.id %}">View All</a></li>
+                <!-- <li role="presentation"><a href="{% url 'organization:create_special_event' organization.id %}">Add New special_event</a></li> -->
+            </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>All special events</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+  <!-- this is a table for the organization event information detail -->
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Event name</th>
+                            <th>time</th>
+                            <th>Location</th>
+                            <th>Favorite</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for special_event in organization.special_event_set.all %}
+                            <tr>
+                                <td><a href = "/organization/{{ organization.id }}/event_detail">{{ special_event.topic }}</a></td>
+                                <td>
+                                    <!-- <a target="_blank" href="{{ special_event.audio_file.url }}">
+                                        <button type="button" class="btn btn-success btn-xs">
+                                            <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                                        </button> -->
+                                    <!-- </a> -->
+
+
+                                    {{ special_event.time }}
+                                </td>
+
+                                <td>{{ special_event.location }}</td>
+                                <td>
+                                    <a href="{% url 'organization:favorite' special_event.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if special_event.is_favorite %}active{% endif %}"></span></a>
+                                </td>
+                                <td>
+                                    <form action="{% url 'organization:delete_special_event' organization.id special_event.id %}" method="post" style="display: inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="special_event_id" value="{{ special_event.id }}" />
+                                        <button type="submit" class="btn btn-danger btn-xs">
+                                            <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

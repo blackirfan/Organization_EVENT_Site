@@ -1,0 +1,36 @@
+<!-- <h1>i want to go school -->
+{% extends 'organization/base.html' %}
+{% block organizations_active %}active{% endblock %}
+
+{% block body %}
+
+
+<img src="http://www.dhakatribune.com/assets/uploads/2017/02/sust-logo.jpg">
+<!-- this is mainly use for detail envent information their on these section -->
+<h2>   {{ organization.organization_name }}</h2>
+
+<style>
+	
+	h1{
+
+
+		color: orange;
+    text-align: center;
+
+   /* border-left: 7px solid red;
+    background-color: lightgrey;*/
+	}
+</style>
+
+<img src="{{organization.organization_logo.url}}">
+
+{% for special_event in organization.special_event_set.all %}
+       <h3>{{ special_event.event_detail }}</h3>
+
+
+{%endfor %}
+
+
+
+{% endblock %}
+

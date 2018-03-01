@@ -1,0 +1,55 @@
+This is python Django base web project:
+
+
+
+
+
+
+•	So when you want to run any different environment,…………………………….
+•	Your pc need to set up Django frame work..
+
+                        Then open the cmd  where the  folder  set up the 
+•	Then need to activate Django virtual environment….
+Example:
+…..\env_mysite\Scripts\activate
+
+Then need to select the project folder for run the web project
+Example:
+cd web
+
+
+
+then need to run Django project 
+and need to run server
+so command  is
+python manage.py runserver
+
+then generate a link start with 8000/……
+then copy it and paste it browser and use it as a local host……
+
+
+
+
+
+
+what is actually our  project purpose:
+
+
+
+
+
+
+
+
+this project is motivated to built a organization of sust campass . all the organization event can updated with time, place, details, organization logo etc. this aim to connect with all people(student, teacher, local people,staff….) who want to attach with specific organization.
+
+In here any one can create user id with secure password system.who can also generate organization name. but cant update organization event information.
+
+Only admin can input the event update with a specific organization. Admin also can remove any user id with admin panel.
+
+
+And this is not complete yet . the improvement is going on this project…
+ This project is built by irfan hossain and juboraj mitra
+
+ [admin password is admin-sust1234]
+
