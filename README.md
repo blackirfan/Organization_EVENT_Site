@@ -1,1 +1,5 @@
 web
+
+
+requirements:
+django version==1.11.1
